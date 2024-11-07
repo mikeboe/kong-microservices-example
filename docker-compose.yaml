@@ -1,0 +1,25 @@
+services:
+  api-gateway:
+    build:
+      dockerfile: ./kong/Dockerfile
+      context: .
+    ports:
+      - "3000:8000"
+      - "4010:3333"
+      - "9010:9669"
+    environment:
+      KONG_DECLARATIVE_CONFIG: /kong/declarative/kong.yml
+
+  go-api:
+    build:
+      dockerfile: ./go/Dockerfile
+      context: .
+    ports:
+      - "3002:3002"
+
+  node-api:
+    build:
+      dockerfile: ./node/Dockerfile
+      context: .
+    ports:
+      - "3001:3001"

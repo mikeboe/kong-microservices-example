@@ -1,0 +1,119 @@
+_format_version: "3.0"
+_transform: true
+
+# SERVICES
+services:
+  # NODE API without AUTH
+  - host: node-api
+    name: node-api-no-auth
+    port: 3001
+    protocol: http
+    routes:
+      - name: node
+        paths:
+          - /node
+        strip_path: true
+        methods:
+          - GET
+  # NODE API Token Issuer
+  - host: node-api
+    name: node-token-issuer
+    port: 3001
+    protocol: http
+    routes:
+      - name: node-token-issuer
+        paths:
+          - /token
+        strip_path: false
+        methods:
+          - POST
+
+  # GO API without AUTH
+  - host: go-api
+    name: go-api-no-auth
+    port: 3002
+    protocol: http
+    routes:
+      - name: go
+        paths:
+          - /go
+        strip_path: true
+
+  # CAT FACTS API
+  - host: cat-fact.herokuapp.com
+    name: cat-facts
+    port: 443
+    protocol: https
+    routes:
+      - name: cat-facts
+        paths:
+          - /facts
+        strip_path: false
+
+  # NODE API with AUTH
+  - host: node-api
+    name: node-api-auth
+    port: 3001
+    protocol: http
+    plugins:
+      - name: jwt
+        enabled: true
+        config:
+          key_claim_name: iss
+          claims_to_verify:
+            - exp
+          secret_is_base64: false
+          run_on_preflight: true
+    routes:
+      - name: node-auth
+        paths:
+          - /node* # wildcard path
+        strip_path: true
+        methods:
+          - GET
+
+  # GO API with AUTH
+  - host: go-api
+    name: go-api-auth
+    port: 3002
+    protocol: http
+    plugins:
+      - name: jwt
+        enabled: true
+        config:
+          key_claim_name: iss
+          claims_to_verify:
+            - exp
+          secret_is_base64: false
+          run_on_preflight: true
+    routes:
+      - name: go-auth
+        paths:
+          - /go* # wildcard path
+        strip_path: true
+        methods:
+          - GET
+
+# PLUGINS
+plugins:
+  - name: request-size-limiting
+    config:
+      allowed_payload_size: 10
+      size_unit: megabytes
+      require_content_length: false
+  - name: correlation-id
+    config:
+      header_name: Request-ID
+      generator: uuid
+      echo_downstream: true
+
+# CONSUMERS
+consumers:
+  - username: api
+
+# JWT SECRETS
+jwt_secrets:
+  - consumer: api
+    key: microservices-fwpm
+    algorithm: HS256
+    secret: secret
