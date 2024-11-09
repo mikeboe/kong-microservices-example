@@ -12,7 +12,7 @@ services:
       - name: node
         paths:
           - /node
-        strip_path: true
+        strip_path: false
         methods:
           - GET
   # NODE API Token Issuer
@@ -37,7 +37,7 @@ services:
       - name: go
         paths:
           - /go
-        strip_path: true
+        strip_path: false
 
   # CAT FACTS API
   - host: cat-fact.herokuapp.com
@@ -67,8 +67,8 @@ services:
     routes:
       - name: node-auth
         paths:
-          - /node* # wildcard path
-        strip_path: true
+          - /node/protected
+        strip_path: false
         methods:
           - GET
 
@@ -89,8 +89,8 @@ services:
     routes:
       - name: go-auth
         paths:
-          - /go* # wildcard path
-        strip_path: true
+          - /go/protected
+        strip_path: false
         methods:
           - GET
 
@@ -106,6 +106,12 @@ plugins:
       header_name: Request-ID
       generator: uuid
       echo_downstream: true
+  - name: rate-limiting
+    config:
+      second: 5
+      minute: 10
+      policy: local
+      limit_by: ip
 
 # CONSUMERS
 consumers:

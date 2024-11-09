@@ -9,11 +9,11 @@ import (
 func main() {
 	router := gin.Default()
 	
-	router.GET("/", func(context *gin.Context) {
+	router.GET("/go", func(context *gin.Context) {
     context.JSON(http.StatusOK, gin.H{"data": "Hello from GO API 👋!"})    
   	})
 
-	router.GET("/protected", func(context *gin.Context) {
+	router.GET("/go/protected", func(context *gin.Context) {
 	context.JSON(http.StatusOK, gin.H{"data": "Protected route from GO API 👋!"})
 	})
 

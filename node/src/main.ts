@@ -9,16 +9,16 @@ app.use(express.json());
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   console.log(
-    `[ http ]: ${req.method} ${req.path} ${res.statusCode} ${req.headers["Request-ID"]}`
+    `[ http ]: ${req.method} ${req.path} ${res.statusCode} ${req.headers["x-kong-request-id"]}`
   );
   next();
 });
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/node", (req: Request, res: Response) => {
   res.status(200).send({ data: "Hello from NODE API 🚀!" });
 });
 
-app.get("/protected", (req: Request, res: Response) => {
+app.get("/node/protected", (req: Request, res: Response) => {
   res.status(200).send({ data: "Hello from private NODE route 🚀!" });
 });
 
