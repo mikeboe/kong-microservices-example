@@ -1,0 +1,95 @@
+{
+  "clientName": "Thunder Client",
+  "collectionName": "Kong",
+  "collectionId": "763f73f4-92de-48aa-ba8c-842efabf760a",
+  "dateExported": "2024-11-12T12:06:14.885Z",
+  "version": "1.2",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "fd9f3d70-3760-4f92-9456-c230a2712a34",
+      "colId": "763f73f4-92de-48aa-ba8c-842efabf760a",
+      "containerId": "",
+      "name": "/",
+      "url": "http://localhost:3000",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2024-11-12T11:28:08.221Z",
+      "modified": "2024-11-12T11:28:17.576Z",
+      "headers": []
+    },
+    {
+      "_id": "854d062a-321e-4500-a102-380432cf0568",
+      "colId": "763f73f4-92de-48aa-ba8c-842efabf760a",
+      "containerId": "",
+      "name": "/facts",
+      "url": "http://localhost:3000/facts",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2024-11-12T11:28:29.923Z",
+      "modified": "2024-11-12T11:28:38.040Z",
+      "headers": []
+    },
+    {
+      "_id": "078d38b4-7b30-4c5a-8610-32aaad17e100",
+      "colId": "763f73f4-92de-48aa-ba8c-842efabf760a",
+      "containerId": "",
+      "name": "/go",
+      "url": "http://localhost:3000/go",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2024-11-12T11:28:47.243Z",
+      "modified": "2024-11-12T11:28:51.873Z",
+      "headers": []
+    },
+    {
+      "_id": "92622ef1-8158-44de-9498-546fae5510f8",
+      "colId": "763f73f4-92de-48aa-ba8c-842efabf760a",
+      "containerId": "",
+      "name": "/node",
+      "url": "http://localhost:3000/node",
+      "method": "GET",
+      "sortNum": 40000,
+      "created": "2024-11-12T11:28:59.563Z",
+      "modified": "2024-11-12T12:03:18.175Z",
+      "headers": []
+    },
+    {
+      "_id": "88520959-18d7-411b-b810-6a3c4f9b9364",
+      "colId": "763f73f4-92de-48aa-ba8c-842efabf760a",
+      "containerId": "",
+      "name": "/token",
+      "url": "http://localhost:3000/token",
+      "method": "POST",
+      "sortNum": 50000,
+      "created": "2024-11-12T11:29:12.310Z",
+      "modified": "2024-11-12T11:29:18.647Z",
+      "headers": []
+    },
+    {
+      "_id": "9a284b41-4062-4d06-b231-c21b7749a38f",
+      "colId": "763f73f4-92de-48aa-ba8c-842efabf760a",
+      "containerId": "",
+      "name": "/node/protected",
+      "url": "http://localhost:3000/node/protected",
+      "method": "GET",
+      "sortNum": 60000,
+      "created": "2024-11-12T11:29:49.206Z",
+      "modified": "2024-11-12T11:50:01.565Z",
+      "headers": []
+    },
+    {
+      "_id": "7d94bb58-fb00-4588-b29d-49b1a7a9d3c1",
+      "colId": "763f73f4-92de-48aa-ba8c-842efabf760a",
+      "containerId": "",
+      "name": "/go/protected",
+      "url": "http://localhost:3000/go/protected",
+      "method": "GET",
+      "sortNum": 70000,
+      "created": "2024-11-12T11:30:12.822Z",
+      "modified": "2024-11-12T11:30:22.674Z",
+      "headers": []
+    }
+  ],
+  "ref": "UgTU-zvRgOa05o6bWtMe0O6ABjefeR7m0ADi7s47wEHJNQ-TfPAYzRvurCcRYenJ0_-OZrakZxwGA6T9M6H4Qg"
+}
